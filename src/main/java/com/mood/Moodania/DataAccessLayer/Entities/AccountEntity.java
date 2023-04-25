@@ -5,6 +5,7 @@ import org.hibernate.engine.internal.Cascade;
 
 import java.util.UUID;
 
+@Entity
 public class AccountEntity {
     @Id
     private UUID id;
