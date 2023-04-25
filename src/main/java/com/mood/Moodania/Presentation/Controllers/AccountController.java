@@ -16,12 +16,12 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    @PostMapping("/signup")
+    @PostMapping("signup")
     public AccountDto signUp(@RequestBody SignUpUserAccountModel model){
         return  accountService.signUp(model);
     }
-    @PostMapping("/login")
-    public AccountDto logInDto(@RequestBody LogInUserAccountModel model){
+    @PostMapping("login")
+    public AccountDto logIn(@RequestBody LogInUserAccountModel model){
         return accountService.logIn(model);
     }
 
