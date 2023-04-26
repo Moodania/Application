@@ -14,12 +14,12 @@ public class FriendsEntity {
 
     @Nonnull
     @ManyToOne
-    @JoinColumn(name = "firstUser", referencedColumnName = "id")
+    @JoinColumn(name = "firstUserId", referencedColumnName = "id")
     private UserEntity firstUser;
 
     @Nonnull
     @ManyToOne
-    @JoinColumn(name = "secondUser", referencedColumnName = "id")
+    @JoinColumn(name = "secondUserId", referencedColumnName = "id")
     private UserEntity secondUser;
 
     public FriendsEntity(UserEntity firstUser, UserEntity secondUser) {
