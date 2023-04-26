@@ -14,12 +14,9 @@ public class AccountEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Nonnull
-    private String email;
-    @Nonnull
-    private String password;
-    @Nonnull
-    private Date registrationDate;
+    @Nonnull private String email;
+    @Nonnull private String password;
+    @Nonnull private Date registrationDate;
 
 
     @OneToOne(cascade = CascadeType.ALL)

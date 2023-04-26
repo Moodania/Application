@@ -1,6 +1,7 @@
 package com.mood.Moodania.DataAccessLayer.Entities;
 
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 
 import java.util.UUID;
@@ -10,11 +11,11 @@ import java.util.UUID;
 public class StatisticsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @Nonnull private UUID id;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userId", referencedColumnName = "id")
-    private UserEntity user;
+    @Nonnull private UserEntity user;
 
     private double avgScore;
     private double likePercentage;
@@ -28,16 +29,7 @@ public class StatisticsEntity {
     private int totalDislikesFromUser;
 
     public StatisticsEntity() {
-        this.avgScore = 0;
-        this.likePercentage = 0;
-        this.dislikePercentage = 0;
-        this.totalMessages = 0;
-        this.totalScore = 0;
-        this.totalChats = 0;
-        this.totalLikesToUser = 0;
-        this.totalDislikesToUser = 0;
-        this.totalLikesFromUser = 0;
-        this.totalDislikesFromUser = 0;
+
     }
 
     public UUID getId() {
@@ -52,7 +44,7 @@ public class StatisticsEntity {
         return user;
     }
 
-    public void setUser(UserEntity user) {
+    public void setUser(@Nonnull UserEntity user) {
         this.user = user;
     }
 
