@@ -1,4 +1,4 @@
-package com.mood.Moodania.Presentation.Models;
+package com.mood.Moodania.Presentation.Models.AccountModels;
 
 import java.util.UUID;
 

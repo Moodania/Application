@@ -1,10 +1,13 @@
 package com.mood.Moodania.ServiceLayer.Services.Implementations;
 
-import com.mood.Moodania.Presentation.Models.LogInUserAccountModel;
-import com.mood.Moodania.Presentation.Models.SignUpUserAccountModel;
 import com.mood.Moodania.ServiceLayer.Dto.AccountDto;
+import com.mood.Moodania.ServiceLayer.Exceptions.AlreadyExistExceptions.EmailAlreadyExistException;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public interface AccountServiceInterface {
-    public AccountDto logIn(LogInUserAccountModel model);
-    public AccountDto signUp(SignUpUserAccountModel model);
+    public AccountDto logIn();
+    public AccountDto signUp(String email, String username, String password, String region, LocalDate birthday)
+            throws EmailAlreadyExistException;
 }

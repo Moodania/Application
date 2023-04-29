@@ -2,8 +2,9 @@ package com.mood.Moodania.DataAccessLayer.Entities;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Cascade;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -17,18 +18,22 @@ public class UserEntity {
     @Nonnull
     private String username;
     @Nonnull
-    private byte age;
+    private LocalDate birthday;
 
+    @Nonnull
     private String region;
 
     private String picturePath;
+    @Nonnull
+    private String gender;
 
 
     public UserEntity() {}
 
-    public UserEntity(String username, byte age) {
+    public UserEntity(@Nonnull String username, @Nonnull LocalDate birthday, @Nonnull String region) {
+        this.region = region;
         this.username = username;
-        this.age = age;
+        this.birthday = birthday;
     }
 
     public UUID getId() {
@@ -47,21 +52,19 @@ public class UserEntity {
         this.username = username;
     }
 
-    public byte getAge() {
-        return age;
+    public LocalDate getBirthday() {
+        return birthday;
     }
 
-    public void setAge(byte age) {
-        this.age = age;
+    public void setBirthday(LocalDate age) {
+        this.birthday = age;
     }
 
     public String getRegion() {
         return region;
     }
 
-    public void setRegion(String region) {
-        this.region = region;
-    }
+    public void setRegion(@Nonnull String region) { this.region = region; }
 
     public String getPicturePath() {
         return picturePath;
@@ -70,4 +73,8 @@ public class UserEntity {
     public void setPicturePath(String picturePath) {
         this.picturePath = picturePath;
     }
+
+    public String getGender() { return gender; }
+
+    public void setGender(@Nonnull String gender) { this.gender = gender; }
 }

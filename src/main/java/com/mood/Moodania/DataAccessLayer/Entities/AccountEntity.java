@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import org.hibernate.engine.internal.Cascade;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -16,7 +18,7 @@ public class AccountEntity {
 
     @Nonnull private String email;
     @Nonnull private String password;
-    @Nonnull private Date registrationDate;
+    @Nonnull private LocalDate registrationDate;
 
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -25,7 +27,7 @@ public class AccountEntity {
 
     public AccountEntity() {}
 
-    public AccountEntity(@Nonnull String email, @Nonnull String password, @Nonnull Date registrationDate, @Nonnull UserEntity user) {
+    public AccountEntity(@Nonnull String email, @Nonnull String password, @Nonnull LocalDate registrationDate, @Nonnull UserEntity user) {
         this.email = email;
         this.password = password;
         this.registrationDate = registrationDate;
@@ -56,11 +58,11 @@ public class AccountEntity {
         this.password = password;
     }
 
-    public Date getRegistrationDate() {
+    public LocalDate getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(@Nonnull Date registrationDate) {
+    public void setRegistrationDate(@Nonnull LocalDate registrationDate) {
         this.registrationDate = registrationDate;
     }
 

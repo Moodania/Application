@@ -1,28 +1,24 @@
-package com.mood.Moodania.Presentation.Models;
+package com.mood.Moodania.Presentation.Models.AccountModels;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class SignUpUserAccountModel {
-    private String username;
-    private String region;
-    private String age;
-    private ArrayList<String> interests;
     private String email;
+    private String username;
     private String password;
+    private LocalDate birthday;
+    private String region;
+    // private ArrayList<String> interests;
 
-    public SignUpUserAccountModel(String username, String email, String password) {
-        this.username = username;
+    public SignUpUserAccountModel(String email, String username, String password, LocalDate birthday, String region) {
         this.email = email;
-        this.password = password;
-    }
-
-    public SignUpUserAccountModel(String username, String region, String age, ArrayList<String> interests, String email, String password) {
         this.username = username;
+        this.password = password;
+        this.birthday = birthday;
         this.region = region;
-        this.age = age;
-        this.interests = interests;
-        this.email = email;
-        this.password = password;
+        //this.interests = interests;
     }
 
     public String getUsername() {
@@ -41,21 +37,21 @@ public class SignUpUserAccountModel {
         this.region = region;
     }
 
-    public String getAge() {
-        return age;
+    public LocalDate getBirthday() {
+        return birthday;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
-    public ArrayList<String> getInterests() {
+    /*public ArrayList<String> getInterests() {
         return interests;
     }
 
     public void setInterests(ArrayList<String> interests) {
         this.interests = interests;
-    }
+    }*/
 
     public String getEmail() {
         return email;
