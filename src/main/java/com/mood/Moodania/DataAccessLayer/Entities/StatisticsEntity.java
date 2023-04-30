@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Statistics")
+@Table(name = "statistics")
 public class StatisticsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

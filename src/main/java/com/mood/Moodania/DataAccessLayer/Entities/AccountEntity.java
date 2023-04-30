@@ -8,7 +8,7 @@ import java.sql.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Accounts")
+@Table(name = "accounts")
 public class AccountEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
