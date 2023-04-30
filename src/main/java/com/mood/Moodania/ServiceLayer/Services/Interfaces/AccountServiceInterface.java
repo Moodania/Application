@@ -1,4 +1,4 @@
-package com.mood.Moodania.ServiceLayer.Services.Implementations;
+package com.mood.Moodania.ServiceLayer.Services.Interfaces;
 
 import com.mood.Moodania.Presentation.Models.LogInUserAccountModel;
 import com.mood.Moodania.Presentation.Models.SignUpUserAccountModel;

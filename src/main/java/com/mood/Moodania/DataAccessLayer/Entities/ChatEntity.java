@@ -2,7 +2,10 @@ package com.mood.Moodania.DataAccessLayer.Entities;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -19,6 +22,9 @@ public class ChatEntity {
     @OneToOne
     @JoinColumn(name = "partnerId", referencedColumnName = "id", nullable = false)
     @Nonnull private UserEntity partner;
+
+    @OneToMany(mappedBy = "chatId")
+    private ArrayList<MessageEntity> messages;
 
     private int userRate;
     private int partnerRate;
@@ -118,5 +124,13 @@ public class ChatEntity {
 
     public void setChatTimeSeconds(long chatTimeSeconds) {
         this.chatTimeSeconds = chatTimeSeconds;
+    }
+
+    public ArrayList<MessageEntity> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(ArrayList<MessageEntity> messages) {
+        this.messages = messages;
     }
 }

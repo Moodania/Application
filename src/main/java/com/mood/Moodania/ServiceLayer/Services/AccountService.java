@@ -6,7 +6,7 @@ import com.mood.Moodania.Presentation.Models.LogInUserAccountModel;
 import com.mood.Moodania.Presentation.Models.SignUpUserAccountModel;
 import com.mood.Moodania.ServiceLayer.Dto.AccountDto;
 import com.mood.Moodania.ServiceLayer.Mapping.Mapper;
-import com.mood.Moodania.ServiceLayer.Services.Implementations.AccountServiceInterface;
+import com.mood.Moodania.ServiceLayer.Services.Interfaces.AccountServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
