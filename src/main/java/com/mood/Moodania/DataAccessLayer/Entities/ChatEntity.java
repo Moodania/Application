@@ -14,11 +14,11 @@ public class ChatEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId", referencedColumnName = "id", nullable = false)
     @Nonnull private UserEntity user;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "partnerId", referencedColumnName = "id", nullable = false)
     @Nonnull private UserEntity partner;
 

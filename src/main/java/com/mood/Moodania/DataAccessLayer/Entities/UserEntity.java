@@ -19,7 +19,6 @@ public class UserEntity {
     private String username;
     @Nonnull
     private LocalDate birthday;
-
     @Nonnull
     private String region;
 

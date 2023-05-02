@@ -1,10 +1,8 @@
-package com.mood.Moodania.Presentation.Models.AccountModels;
+package com.mood.Moodania.Presentation.Models.RequestModels.AuthenticationModels;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 
-public class SignUpUserAccountModel {
+public class SignUpRequestModel {
     private String email;
     private String username;
     private String password;
@@ -12,7 +10,7 @@ public class SignUpUserAccountModel {
     private String region;
     // private ArrayList<String> interests;
 
-    public SignUpUserAccountModel(String email, String username, String password, LocalDate birthday, String region) {
+    public SignUpRequestModel(String email, String username, String password, LocalDate birthday, String region) {
         this.email = email;
         this.username = username;
         this.password = password;

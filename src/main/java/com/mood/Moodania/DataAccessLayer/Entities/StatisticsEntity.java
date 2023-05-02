@@ -13,7 +13,7 @@ public class StatisticsEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Nonnull private UUID id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "userId", referencedColumnName = "id")
     @Nonnull private UserEntity user;
 
@@ -28,8 +28,10 @@ public class StatisticsEntity {
     private int totalLikesFromUser;
     private int totalDislikesFromUser;
 
-    public StatisticsEntity() {
+    public StatisticsEntity() {}
 
+    public StatisticsEntity(UserEntity user) {
+        this.user = user;
     }
 
     public UUID getId() {
