@@ -1,9 +1,6 @@
 package com.mood.Moodania.ServiceLayer.Services.Implementations;
 
-import com.mood.Moodania.DataAccessLayer.Entities.AccountEntity;
-import com.mood.Moodania.Presentation.Exceptions.JwtAuthenticationException;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
@@ -50,7 +47,7 @@ public class JwtService {
                 .compact();
     }
 
-    public boolean isValidToken(String token, UserDetails details) throws JwtAuthenticationException {
+    public boolean isValidToken(String token, UserDetails details) {
         String email = getEmail(token);
         return IsTokenExpired(token) && (email.equals(details.getUsername()));
     }

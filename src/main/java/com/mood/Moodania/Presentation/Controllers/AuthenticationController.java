@@ -39,7 +39,6 @@ public class AuthenticationController {
 
     @PostMapping("login")
     public ResponseEntity<SuccessfulLoginOrSignUpModel> logIn(@RequestBody LogInRequestModel model) throws InvalidPasswordOrUsernameException {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(model.getEmail(), model.getPassword()));
         AccountDto account = authenticationService.logIn(model.getEmail(), model.getPassword());
         return ResponseEntity.ok(createSuccessfulLoginOrSignInModel(account));
     }

@@ -1,9 +1,10 @@
 package com.mood.Moodania.DataAccessLayer.Models;
 
 public enum ERole {
-    Default,
-    Premium,
-    Admin;
+    ROLE_DEFAULT,
+    ROLE_PREMIUM,
+    ROLE_ADMIN;
+
 
     @Override
     public String toString() {

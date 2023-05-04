@@ -15,12 +15,15 @@ import com.mood.Moodania.ServiceLayer.Exceptions.InvalidExceptions.InvalidPasswo
 import com.mood.Moodania.ServiceLayer.Mapping.Mapper;
 import com.mood.Moodania.ServiceLayer.Services.AuthenticationServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
 @Service
-public class AuthenticationService implements AuthenticationServiceInterface {
+public class AuthenticationService implements AuthenticationServiceInterface, UserDetailsService {
 
     private final AccountRepository accountRepository;
     private final UserRepository userRepository;
@@ -54,7 +57,7 @@ public class AuthenticationService implements AuthenticationServiceInterface {
 
         var user = new UserEntity(username, birthday, region);
 
-        RoleEntity role = roleRepository.findByName(ERole.Default);
+        RoleEntity role = roleRepository.findByName(ERole.ROLE_DEFAULT);
         var account = new AccountEntity(email, password, LocalDate.now(), user, role);
 
         var statistics = new StatisticsEntity(user);
@@ -67,7 +70,8 @@ public class AuthenticationService implements AuthenticationServiceInterface {
     }
 
     @Override
-    public AccountDto findAccountByEmail(String email) {
-        return null;
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return accountRepository.findAccountEntityByEmail(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Email " + username + " not found exception"));
     }
 }

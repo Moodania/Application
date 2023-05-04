@@ -11,5 +11,4 @@ public interface AuthenticationServiceInterface {
     AccountDto logIn(String email, String password) throws InvalidPasswordOrUsernameException;
     AccountDto signUp(String email, String username, String password, String region, LocalDate birthday)
             throws EmailAlreadyExistException;
-    AccountDto findAccountByEmail(String email);
 }
