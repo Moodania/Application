@@ -2,6 +2,6 @@ package com.mood.Moodania.ServiceLayer.Dto;
 
 import java.util.UUID;
 
-public record AccountDto(String userName, String email, UUID userId, UUID accountId) {
+public record AccountDto(UUID accountId, UUID userId, String username, String email, String Role) {
 
 }

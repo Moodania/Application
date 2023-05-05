@@ -13,12 +13,12 @@ public class FriendsEntity {
     private UUID id;
 
     @Nonnull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "firstUserId", referencedColumnName = "id")
     private UserEntity firstUser;
 
     @Nonnull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "secondUserId", referencedColumnName = "id")
     private UserEntity secondUser;
 

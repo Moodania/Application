@@ -2,6 +2,8 @@ package com.mood.Moodania.DataAccessLayer.Entities;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -12,11 +14,11 @@ public class ChatEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId", referencedColumnName = "id", nullable = false)
     @Nonnull private UserEntity user;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "partnerId", referencedColumnName = "id", nullable = false)
     @Nonnull private UserEntity partner;
 
@@ -27,10 +29,10 @@ public class ChatEntity {
 
     @Nonnull private String sameInterests;
 
-    @Nonnull private Date meetDate;
+    @Nonnull private LocalDateTime meetDate;
     private long chatTimeSeconds;
 
-    public ChatEntity(@Nonnull UserEntity user, @Nonnull UserEntity partner, @Nonnull String sameInterests, @Nonnull Date meetDate) {
+    public ChatEntity(@Nonnull UserEntity user, @Nonnull UserEntity partner, @Nonnull String sameInterests, @Nonnull LocalDateTime meetDate) {
         this.user = user;
         this.partner = partner;
         this.sameInterests = sameInterests;
@@ -104,11 +106,11 @@ public class ChatEntity {
         this.sameInterests = sameInterests;
     }
 
-    public Date getMeetDate() {
+    public LocalDateTime getMeetDate() {
         return meetDate;
     }
 
-    public void setMeetDate(Date meetDate) {
+    public void setMeetDate(LocalDateTime meetDate) {
         this.meetDate = meetDate;
     }
 
