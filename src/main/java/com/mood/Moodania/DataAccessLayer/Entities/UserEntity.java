@@ -17,6 +17,7 @@ public class UserEntity {
 
     @Nonnull
     private String username;
+
     @Nonnull
     private LocalDate birthday;
     @Nonnull
@@ -55,8 +56,8 @@ public class UserEntity {
         return birthday;
     }
 
-    public void setBirthday(LocalDate age) {
-        this.birthday = age;
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     public String getRegion() {
