@@ -32,6 +32,7 @@ public class SecurityConfiguration {
                     .csrf().disable()
                     .authorizeHttpRequests()
                     .requestMatchers("mood/v1/authentication/**").permitAll()
+                .requestMatchers("mood/v1/search/**").permitAll()
                     .requestMatchers("/mood/v1/role/**").hasAuthority("ROLE_ADMIN")
                 .and()
                     .sessionManagement()

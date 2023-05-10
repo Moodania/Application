@@ -2,7 +2,7 @@ package com.mood.Moodania.Presentation.Models.RequestModels.AuthenticationModels
 
 import java.time.LocalDate;
 
-public class SignUpRequestModel {
+public class    SignUpRequestModel {
     private String email;
     private String username;
     private String password;
